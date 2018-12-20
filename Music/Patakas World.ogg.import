@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Patakas World.ogg-cbb43ea7c561fd266a112115bea1136d.oggstr"
+
+[deps]
+
+source_file="res://Music/Patakas World.ogg"
+dest_files=[ "res://.import/Patakas World.ogg-cbb43ea7c561fd266a112115bea1136d.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

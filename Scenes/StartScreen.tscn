@@ -1,0 +1,382 @@
+[gd_scene load_steps=26 format=2]
+
+[ext_resource path="res://Scripts/StartScreen.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Background/Vertical_Background_7_Png_Elements-01.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Background/Vertical_Background_7_Png_Elements-06.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Background/Vertical_Background_7_Png_Elements-02.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Background/Vertical_Background_7_Png_Elements-07.png" type="Texture" id=5]
+[ext_resource path="res://Assets/diamond blue.png" type="Texture" id=6]
+[ext_resource path="res://Assets/GUI/Back_Pressed.png" type="Texture" id=7]
+[ext_resource path="res://Assets/GUI/Back_White.png" type="Texture" id=8]
+[ext_resource path="res://Assets/GUI/Forward_Grey.png" type="Texture" id=9]
+[ext_resource path="res://Assets/GUI/Forward_White.png" type="Texture" id=10]
+[ext_resource path="res://Scripts/Camera2D.gd" type="Script" id=11]
+[ext_resource path="res://Scripts/FadeIn.gd" type="Script" id=12]
+[ext_resource path="res://Music/Button_Select.wav" type="AudioStream" id=13]
+[ext_resource path="res://Music/Patakas World.ogg" type="AudioStream" id=14]
+
+[sub_resource type="DynamicFontData" id=1]
+
+hinting = 2
+font_path = "res://Assets/Fonts/phenom_smooth-elegant/Smooth Elegant.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+
+size = 90
+use_mipmaps = true
+use_filter = false
+font_data = SubResource( 1 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFontData" id=3]
+
+hinting = 2
+font_path = "res://Assets/Fonts/phenom_smooth-elegant/Smooth Elegant.ttf"
+
+[sub_resource type="DynamicFont" id=4]
+
+size = 80
+use_mipmaps = true
+use_filter = true
+font_data = SubResource( 3 )
+_sections_unfolded = [ "Settings" ]
+
+[sub_resource type="DynamicFontData" id=5]
+
+hinting = 2
+font_path = "res://Assets/Fonts/phenom_smooth-elegant/Smooth Elegant.ttf"
+
+[sub_resource type="DynamicFont" id=6]
+
+size = 90
+use_mipmaps = false
+use_filter = true
+font_data = SubResource( 5 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFontData" id=7]
+
+hinting = 2
+font_path = "res://Assets/Fonts/phenom_smooth-elegant/Smooth Elegant.ttf"
+
+[sub_resource type="DynamicFont" id=8]
+
+size = 90
+use_mipmaps = false
+use_filter = true
+font_data = SubResource( 7 )
+_sections_unfolded = [ "Settings" ]
+
+[sub_resource type="RectangleShape2D" id=9]
+
+custom_solver_bias = 0.0
+extents = Vector2( 120, 120 )
+
+[sub_resource type="RectangleShape2D" id=10]
+
+custom_solver_bias = 0.0
+extents = Vector2( 120, 120 )
+
+[sub_resource type="Animation" id=11]
+
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[node name="StartScreen" type="Node2D" index="0"]
+
+script = ExtResource( 1 )
+
+[node name="Background2" type="Sprite" parent="." index="0"]
+
+position = Vector2( -1.20978, 555.187 )
+scale = Vector2( 0.321804, 0.320915 )
+texture = ExtResource( 2 )
+centered = false
+flip_h = true
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="Background" type="Sprite" parent="." index="1"]
+
+scale = Vector2( 0.321804, 0.320915 )
+texture = ExtResource( 2 )
+centered = false
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="Background3" type="Sprite" parent="." index="2"]
+
+position = Vector2( 0, -801.403 )
+scale = Vector2( 0.321804, 0.320915 )
+texture = ExtResource( 2 )
+centered = false
+flip_h = true
+flip_v = true
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="Hills" type="Sprite" parent="." index="3"]
+
+position = Vector2( 224.622, 711.736 )
+scale = Vector2( 0.323032, 0.940157 )
+texture = ExtResource( 3 )
+
+[node name="Trees" type="Sprite" parent="." index="4"]
+
+position = Vector2( 224.922, 728.104 )
+scale = Vector2( 0.322238, 0.309522 )
+texture = ExtResource( 4 )
+
+[node name="SideBorders" type="Sprite" parent="." index="5"]
+
+position = Vector2( 226.317, 372.827 )
+scale = Vector2( 0.321614, 0.538125 )
+texture = ExtResource( 5 )
+
+[node name="BridgeMaker" type="Label" parent="." index="6"]
+
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = 8.0
+margin_top = -3.0
+margin_right = 389.0
+margin_bottom = 177.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.0797172, 0.0774536, 0.367188, 1 )
+text = "Bridge Maker"
+align = 1
+valign = 1
+uppercase = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+
+[node name="BestScore" type="Label" parent="." index="7"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 45.0
+margin_top = 191.0
+margin_right = 213.0
+margin_bottom = 332.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0.335938, 0.125977, 0.125977, 1 )
+text = "Best Score"
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors" ]
+
+[node name="Score" type="Label" parent="." index="8"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 212.0
+margin_top = 197.0
+margin_right = 412.0
+margin_bottom = 326.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "3120"
+align = 2
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+
+[node name="Diamond" type="Sprite" parent="." index="9"]
+
+position = Vector2( 115.703, 414.728 )
+scale = Vector2( 0.0563731, 0.057456 )
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="TotalDiamonds" type="Label" parent="." index="10"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 210.0
+margin_top = 368.0
+margin_right = 406.0
+margin_bottom = 455.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "127"
+align = 2
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+
+[node name="Quit" type="TouchScreenButton" parent="." index="11"]
+
+modulate = Color( 0.0797172, 0.0774536, 0.367188, 1 )
+position = Vector2( 55.7755, 518.012 )
+scale = Vector2( 0.55, 0.55 )
+normal = ExtResource( 7 )
+pressed = ExtResource( 8 )
+bitmask = null
+shape = SubResource( 9 )
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = ""
+visibility_mode = 0
+_sections_unfolded = [ "Transform" ]
+
+[node name="Play" type="TouchScreenButton" parent="." index="12"]
+
+modulate = Color( 0.0797172, 0.0774536, 0.367188, 1 )
+position = Vector2( 269.378, 512.936 )
+scale = Vector2( 0.55, 0.55 )
+normal = ExtResource( 9 )
+pressed = ExtResource( 10 )
+bitmask = null
+shape = SubResource( 10 )
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = ""
+visibility_mode = 0
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Camera2D" type="Camera2D" parent="." index="13"]
+
+position = Vector2( 225, 400 )
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 1, 1 )
+limit_left = -10000000
+limit_top = -10000000
+limit_right = 10000000
+limit_bottom = 10000000
+limit_smoothed = false
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = false
+smoothing_speed = 5.0
+offset_v = 0.0
+offset_h = 0.0
+drag_margin_left = 0.2
+drag_margin_top = 0.2
+drag_margin_right = 0.2
+drag_margin_bottom = 0.2
+editor_draw_screen = true
+editor_draw_limits = false
+editor_draw_drag_margin = false
+script = ExtResource( 11 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="FadeIn" type="ColorRect" parent="." index="14"]
+
+editor/display_folded = true
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = -338.0
+margin_right = 454.0
+margin_bottom = 1115.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0, 0, 0, 1 )
+script = ExtResource( 12 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="FadeIn" index="0"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/Fade_In = SubResource( 11 )
+blend_times = [  ]
+
+[node name="ButtonSelect" type="AudioStreamPlayer2D" parent="." index="15"]
+
+position = Vector2( 227.208, 499.858 )
+stream = ExtResource( 13 )
+volume_db = -20.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="Music" type="AudioStreamPlayer2D" parent="." index="16"]
+
+position = Vector2( 229.48, 402.159 )
+stream = ExtResource( 14 )
+volume_db = -20.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[connection signal="pressed" from="Quit" to="." method="_on_Quit_pressed"]
+
+[connection signal="pressed" from="Play" to="." method="_on_Play_pressed"]
+
+[connection signal="fade_finished" from="FadeIn" to="." method="_on_FadeIn_fade_finished"]
+
+[connection signal="animation_finished" from="FadeIn/AnimationPlayer" to="FadeIn" method="_on_AnimationPlayer_animation_finished"]
+
+

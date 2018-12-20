@@ -1,0 +1,493 @@
+[gd_scene load_steps=29 format=2]
+
+[ext_resource path="res://Scripts/Root.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Background/Vertical_Background_7_Png_Elements-01.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Platform/Vertical_Background_7_Png_Elements-03.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Diamond_stick_long.png" type="Texture" id=4]
+[ext_resource path="res://Assets/diamond_blue_50x50.png" type="Texture" id=5]
+[ext_resource path="res://Scripts/Bridge.gd" type="Script" id=6]
+[ext_resource path="res://Assets/Bridge/long_rope_piece.png" type="Texture" id=7]
+[ext_resource path="res://Scripts/Trail.gd" type="Script" id=8]
+[ext_resource path="res://Scripts/Platform.gd" type="Script" id=9]
+[ext_resource path="res://Assets/GUI/Lives.png" type="Texture" id=10]
+[ext_resource path="res://icon.png" type="Texture" id=11]
+[ext_resource path="res://Scripts/Camera2D.gd" type="Script" id=12]
+[ext_resource path="res://Music/Overboard.wav" type="AudioStream" id=13]
+[ext_resource path="res://Music/Underflow.wav" type="AudioStream" id=14]
+[ext_resource path="res://Music/Hit.wav" type="AudioStream" id=15]
+[ext_resource path="res://Music/Patakas World.ogg" type="AudioStream" id=16]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 49.3155, 13.0567 )
+
+[sub_resource type="DynamicFontData" id=10]
+
+hinting = 2
+font_path = "res://Assets/Fonts/feydesign_adefebia-free-font/Adefebia Free Font.ttf"
+
+[sub_resource type="DynamicFont" id=11]
+
+size = 40
+use_mipmaps = false
+use_filter = true
+font_data = SubResource( 10 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="Animation" id=12]
+
+resource_name = "Grow_and_Move"
+length = 1.4
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:custom_fonts/font:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 20, 22, 24, 26, 27, 28, 29, 30, 32, 34, 36, 37, 38, 39, 40 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 175 ), Vector2( 0, 130 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../Diamond:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 225, 170 ), Vector2( 225, 105 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../Diamond:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.6, 0.6 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 4.725, 0 )
+_sections_unfolded = [ "Resource" ]
+
+[sub_resource type="Gradient" id=3]
+
+offsets = PoolRealArray( 0.106509, 0.390533, 0.792899 )
+colors = PoolColorArray( 0.902344, 0.730731, 0.366577, 1, 0.710938, 0.568611, 0.266602, 1, 0.5625, 0.395576, 0.0769043, 1 )
+
+[sub_resource type="RectangleShape2D" id=4]
+
+custom_solver_bias = 0.0
+extents = Vector2( 49.0125, 12.9157 )
+
+[sub_resource type="DynamicFontData" id=5]
+
+hinting = 2
+font_path = "res://Assets/Fonts/marlboro/Marlboro.ttf"
+
+[sub_resource type="DynamicFont" id=6]
+
+size = 60
+use_mipmaps = false
+use_filter = false
+font_data = SubResource( 5 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFontData" id=7]
+
+hinting = 2
+font_path = "res://Assets/Fonts/marlboro/Marlboro.ttf"
+
+[sub_resource type="DynamicFont" id=8]
+
+size = 580
+use_mipmaps = false
+use_filter = false
+font_data = SubResource( 7 )
+_sections_unfolded = [ "Font" ]
+
+[sub_resource type="RectangleShape2D" id=9]
+
+custom_solver_bias = 0.0
+extents = Vector2( 33, 33 )
+
+[node name="Root" type="Control" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 1 )
+
+[node name="BgDown" type="Sprite" parent="." index="0"]
+
+position = Vector2( 0, 593.967 )
+scale = Vector2( 0.321804, 0.320915 )
+texture = ExtResource( 2 )
+centered = false
+flip_v = true
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="Background" type="Sprite" parent="." index="1"]
+
+scale = Vector2( 0.321804, 0.320915 )
+texture = ExtResource( 2 )
+centered = false
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="BgUp" type="Sprite" parent="." index="2"]
+
+position = Vector2( 0, -800 )
+scale = Vector2( 0.321804, 0.320915 )
+texture = ExtResource( 2 )
+centered = false
+flip_h = true
+flip_v = true
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="Starting Platform" type="StaticBody2D" parent="." index="3"]
+
+editor/display_folded = true
+position = Vector2( 0, 500 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Starting Platform" index="0"]
+
+scale = Vector2( 0.07, 0.15 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Starting Platform" index="1"]
+
+shape = SubResource( 1 )
+
+[node name="DiamondStick" type="Sprite" parent="." index="4"]
+
+position = Vector2( 350.14, 458.727 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 4 )
+offset = Vector2( 0, -42 )
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="Diamond" type="Sprite" parent="." index="5"]
+
+visible = false
+position = Vector2( 225, 105 )
+texture = ExtResource( 5 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Comment" type="Label" parent="." index="6"]
+
+editor/display_folded = true
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 130.0
+margin_right = 451.0
+margin_bottom = 201.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 11 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Perfect"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "Visibility", "custom_fonts" ]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Comment" index="0"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/Grow_and_Move = SubResource( 12 )
+blend_times = [  ]
+
+[node name="Node2D" type="Node2D" parent="." index="7"]
+
+editor/display_folded = true
+position = Vector2( 47, 487 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Bridge" type="KinematicBody2D" parent="Node2D" index="0"]
+
+position = Vector2( -4.725, 0 )
+input_pickable = false
+collision_layer = 2
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 6 )
+_sections_unfolded = [ "Angular", "Collision", "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="Node2D/Bridge" index="0"]
+
+scale = Vector2( 0.15, 0.2 )
+texture = ExtResource( 7 )
+flip_v = true
+region_enabled = true
+region_rect = Rect2( 0, 0, 63, 0 )
+region_filter_clip = true
+_sections_unfolded = [ "Offset", "Region", "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Bridge" index="1"]
+
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Trail" type="Line2D" parent="Node2D/Bridge" index="2"]
+
+points = PoolVector2Array(  )
+width = 8.0
+default_color = Color( 1, 1, 1, 1 )
+gradient = SubResource( 3 )
+texture_mode = 1193897030
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+sharp_limit = 2.0
+round_precision = 8
+script = ExtResource( 8 )
+_sections_unfolded = [ "Fill" ]
+
+[node name="Platform" type="StaticBody2D" parent="." index="8"]
+
+editor/display_folded = true
+position = Vector2( 350, 500 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 2
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script = ExtResource( 9 )
+_sections_unfolded = [ "Collision", "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Platform" index="0"]
+
+scale = Vector2( 0.07, 0.15 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 300, 173.333 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform" index="1"]
+
+shape = SubResource( 4 )
+
+[node name="Score" type="Label" parent="." index="9"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = -115.0
+margin_bottom = 76.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0.34375, 0.0765381, 0.0765381, 1 )
+text = "0"
+autowrap = true
+uppercase = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
+
+[node name="Heart" type="Sprite" parent="." index="10"]
+
+editor/display_folded = true
+position = Vector2( 340, 0 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 10 )
+centered = false
+offset = Vector2( 0, 30 )
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="Lives" type="Label" parent="Heart" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 520.0
+margin_top = 90.0
+margin_right = 820.0
+margin_bottom = 612.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "3"
+align = 2
+autowrap = true
+uppercase = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "Size Flags", "custom_colors", "custom_fonts" ]
+
+[node name="Touch" type="TouchScreenButton" parent="." index="11"]
+
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 0, -103.552 )
+scale = Vector2( 7.03584, 15.6911 )
+normal = ExtResource( 11 )
+pressed = null
+bitmask = null
+shape = SubResource( 9 )
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = "ui_select"
+visibility_mode = 0
+
+[node name="Camera2D" type="Camera2D" parent="." index="12"]
+
+position = Vector2( 225, 400 )
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 1, 1 )
+limit_left = -10000000
+limit_top = -10000000
+limit_right = 10000000
+limit_bottom = 10000000
+limit_smoothed = false
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = false
+smoothing_speed = 5.0
+offset_v = 0.0
+offset_h = 0.0
+drag_margin_left = 0.2
+drag_margin_top = 0.2
+drag_margin_right = 0.2
+drag_margin_bottom = 0.2
+editor_draw_screen = true
+editor_draw_limits = false
+editor_draw_drag_margin = false
+script = ExtResource( 12 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Music" type="Node2D" parent="." index="13"]
+
+editor/display_folded = true
+
+[node name="Overboard" type="AudioStreamPlayer2D" parent="Music" index="0"]
+
+position = Vector2( 212.114, 524.439 )
+stream = ExtResource( 13 )
+volume_db = -15.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="Miss" type="AudioStreamPlayer2D" parent="Music" index="1"]
+
+position = Vector2( 217.124, 521.099 )
+stream = ExtResource( 14 )
+volume_db = -15.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="Hit" type="AudioStreamPlayer2D" parent="Music" index="2"]
+
+position = Vector2( 227.146, 492.706 )
+stream = ExtResource( 15 )
+volume_db = -10.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="Soundtrack" type="AudioStreamPlayer2D" parent="Music" index="3"]
+
+position = Vector2( 218.795, 434.249 )
+stream = ExtResource( 16 )
+volume_db = -20.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[connection signal="animation_finished" from="Comment/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+
+
